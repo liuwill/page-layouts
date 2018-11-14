@@ -19,9 +19,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
-    // alias: {
-    //   '@': resolve('src')
-    // }
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': path.resolve(__dirname, 'src')
+    }
   },
   // other options...
   module: {
@@ -68,7 +69,7 @@ module.exports = {
       banner: `Build: @${currentTime} [file]`
     }),
     new StyleLintPlugin({
-      files: ['**/*.{vue,htm,html,css,sss,less,scss,sass}'],
+      files: ['src/**/*.{vue,htm,html,css,sss,less,scss,sass}'],
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
@@ -89,5 +90,15 @@ module.exports = {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),
-  ]
+  ],
+  performance: {
+    hints: false
+  },
+  devtool: '#eval-source-map'
+}
+
+// test specific setups
+if (process.env.NODE_ENV === 'test') {
+  module.exports.externals = [require('webpack-node-externals')()]
+  module.exports.devtool = 'eval'
 }

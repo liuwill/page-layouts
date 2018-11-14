@@ -1,7 +1,18 @@
 {
   "presets": [
-    ["@babel/preset-env", { "modules": false }],
+    ["@babel/preset-env", { "modules": false }]
   ],
   "plugins": [
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        ["@babel/preset-env", {
+          "modules": false,
+          "targets": { "node": "current" }
+        }]
+      ],
+      "plugins": ["istanbul"]
+    }
+  }
 }

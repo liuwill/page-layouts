@@ -1,0 +1,9 @@
+{
+  "name": "page-layouts",
+  "version": "1.0.0",
+  "description": "layout",
+  "main": "index.js",
+  "repository": "https://github.com/liuwill/page-layouts.git",
+  "author": "liuwill <liuwei_will@qq.com>",
+  "license": "MIT"
+}

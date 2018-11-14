@@ -1,0 +1,11 @@
+{
+  "name": "Page Loyouts",
+  "short_name": "page layouts",
+  "icons": [{
+      "src": "/public/logo.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    }],
+  "start_url": "/",
+  "display": "standalone"
+}

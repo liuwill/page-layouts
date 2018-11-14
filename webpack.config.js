@@ -3,6 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 const currentTime = (new Date()).toLocaleString()
 module.exports = {
@@ -46,12 +47,21 @@ module.exports = {
         test: /\.css$/,
         loader: ["style-loader", "css-loader"]
       },
+      {
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
+      },
     ]
   },
   plugins: [
     new VueLoaderPlugin(),
     new webpack.BannerPlugin({
       banner: `Build: @${currentTime} [file]`
+    }),
+    new StyleLintPlugin({
+      files: ['**/*.{vue,htm,html,css,sss,less,scss,sass}'],
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',

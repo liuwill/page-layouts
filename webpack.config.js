@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const currentTime = (new Date()).toLocaleString()
 module.exports = {
@@ -45,7 +46,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ["style-loader", "css-loader"]
+        loader: [
+          process.env.NODE_ENV !== 'production'
+            ? 'vue-style-loader'
+            : MiniCssExtractPlugin.loader,
+          // "style-loader",
+          "css-loader"
+        ]
       },
       {
         enforce: 'pre',
@@ -62,6 +69,10 @@ module.exports = {
     }),
     new StyleLintPlugin({
       files: ['**/*.{vue,htm,html,css,sss,less,scss,sass}'],
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'assets/[name].css',
+      chunkFilename: 'assets/[id].css',
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',

@@ -4,7 +4,7 @@ import App from './App.vue'
 
 Vue.use(VueRouter)
 
-new Vue({
+window._APP_VM = new Vue({
   // el: '#app',
   // router:router,
   render: h => {

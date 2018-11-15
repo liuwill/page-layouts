@@ -12,7 +12,7 @@
     "stylelint": "stylelint ./src/**/*.vue ./src/**/*.css ./src/**/*.html",
     "test": "cross-env BABEL_ENV=test karma start --single-run",
     "codecov": "codecov",
-    "dev": "cross-env NODE_ENV=development node devServer --open --hot",
+    "dev": "cross-env NODE_ENV=development node devServer",
     "build": "rm -rf ./dist && cross-env NODE_ENV=production webpack --config webpack.config.js --progress --hide-modules"
   },
   "dependencies": {

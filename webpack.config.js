@@ -105,7 +105,7 @@ module.exports = {
       filename: 'index.html',
       template: './src/index.template.html',
       inject: true,
-      // favicon: 'src/images/favicon.ico',
+      favicon: 'public/favicon.ico',
       minify: {
         removeComments: true,
         collapseWhitespace: true,

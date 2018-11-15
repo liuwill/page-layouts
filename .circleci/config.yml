@@ -38,3 +38,5 @@ jobs:
       # run tests!
       - run: yarn run check
       - run: yarn run test
+      - run: yarn global add codecov
+      - run: codecov

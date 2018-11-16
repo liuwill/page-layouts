@@ -3,7 +3,7 @@
     <div class="header"></div>
     <div class="main">
       <div class="image-list">
-        <div class="image-list__item" v-for="item in imageList" v-bind:key={item}>
+        <div class="image-list__item" v-for="item in imageList" v-bind:key="item">
           <img :src="item"/>
         </div>
       </div>

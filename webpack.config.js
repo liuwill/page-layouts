@@ -130,3 +130,11 @@ module.exports = {
     port: 9000
   },
 }
+
+if (nodeEnv === 'production') {
+  module.exports.optimization = {
+    splitChunks: {
+      chunks: 'all'
+    }
+  }
+}
